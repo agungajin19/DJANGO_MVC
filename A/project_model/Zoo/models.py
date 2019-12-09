@@ -21,7 +21,7 @@ class Kandang(models.Model):
 class Penjaga(models.Model):
     nama = models.CharField(max_length=40)
     nomor_telepon = models.CharField(max_length=15, default='')
-    jadwal_jaga = models.CharField(max_length=40, default='')
+    jadwal_jaga = models.DateTimeField('Jadwal Jaga')
     
     def __str__(self):
         return self.nama
@@ -29,7 +29,7 @@ class Penjaga(models.Model):
 class Pengunjung(models.Model):
     nama = models.CharField(max_length=40)
     nomor_telepon = models.CharField(max_length=15, default='')
-    hari_berkunjung = models.CharField(max_length=40, default='')
+    hari_berkunjung = models.DateTimeField('Jadwal Berkunjung')
     
     def __str__(self):
         return self.nama
