@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+blog   
+{% endblock %}
+
+{% block content %}
+    <!-- CONTEN -->
+    <div class="container blog_content">
+      {% for blog in blogs %}
+      <div>
+        <img src="{{blog.foto}}">
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <p>September 25, 2018</p>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+          <p>0 Comment</p>
+        </div>
+      </div>
+      <div>
+        <h1>{{blog.judul}}</h1>
+        <p>{{blog.isi}}</p>
+      </div>
+     {% endfor %}
+    </div>
+    {% endblock %}

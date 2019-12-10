@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+mentee   
+{% endblock %}
+
+{% block content %}
+      <!-- CONTENT -->
+      
+      <div class="container content_format">
+        <div class="row content_format_h3">
+          <h3><b>Our Mentee</b></h3>
+        </div>
+        {% for mentee in mentees %}
+        <div class="row content_format_1">
+          <div class="col-md-4">
+            
+            <!-- <img src="../../static/img/mentee/jobs.png"> -->
+            <img src="{{mentee.foto}}">
+            
+          </div>
+          <div class="col-md-8">
+            <!-- <h4>Steve Jobs</h4> -->
+              <h4>{{mentee.nama}}</h4>
+            <!-- <p>"I learn so much from Alpha tech"</p> -->
+              <p>{{mentee.quote}}</p>
+          </div>
+        </div>
+        {% endfor %}
+        
+
+      {% endblock %}
