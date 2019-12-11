@@ -1,29 +1,37 @@
 {% extends 'base.html' %}
 
 {% block title %}
-blog   
+Blog   
 {% endblock %}
 
 {% block content %}
     <!-- CONTEN -->
     <div class="container blog_content">
       {% for blog in blogs %}
-      <div>
-        <img src="{{blog.foto}}">
-      </div>
-      <div class="row">
-        <div class="col-md-5">
-          <p>September 25, 2018</p>
+      <div class="article">
+        <div>
+            <img src="{{blog.foto}}">
         </div>
-        <div class="col-md-2"></div>
-        <div class="col-md-5">
-          <p>0 Comment</p>
+        <div class="row">
+          <div class="col-md-5">
+            <p>{{blog.tanggal}}</p>
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-5">
+            <h6>{{blog.comment}} Comment</h6>
+          </div>
+        </div>
+        <div>
+          <h1>{{blog.judul}}</h1>
+          <p>{{blog.isi |safe|truncatewords:"30"|linebreaks }}</p>
+          <a href="{% url 'challange:seemore' blog.id %}">Baca Selengkapnya</a>
         </div>
       </div>
-      <div>
-        <h1>{{blog.judul}}</h1>
-        <p>{{blog.isi}}</p>
-      </div>
+      
      {% endfor %}
+     <div class="post_button">
+        <h4>Post Your Article Here</h4>
+        <a class="btn btn-secondary" href="form" role="button">Post</a>
+      </div>
     </div>
     {% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Mentor, Mentee, Blog
 
@@ -20,3 +20,21 @@ def mentor(request):
 
 def author(request):
     return render(request, 'challange/author.html', {})
+
+def blogform(request):
+    return render(request,'challange/blogform.html', {})
+
+def submit(request):
+    submitted = Blog(
+        judul = request.POST['judul'],
+        foto = request.POST['foto'],
+        isi = request.POST['isi']
+    )
+
+    submitted.save()
+    return redirect('/blog')
+
+def seemore(request, blog_id):
+    ids = Blog.objects.filter(id=blog_id)
+    return render(request, 'challange/seemore.html', {'ids':ids})
+    
